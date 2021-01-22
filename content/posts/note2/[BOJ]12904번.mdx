@@ -1,6 +1,6 @@
 ---
 title: BOJ_12904번
-date: 2021-01-21
+date: 2021-01-22
 tags:
   - Til
 ---
@@ -56,8 +56,7 @@ S를 T로 바꿀 수 있으면 1을 없으면 0을 출력한다.
         if T[-1] == "A":
             T = T[:-1]
         else:
-            T = T[:-1]
-            T = T[::-1]
+            T = ''.join(reversed(T[:-1]))
     if S == T:
         answer = 1
     else:
