@@ -1,0 +1,89 @@
+---
+title: BOJ_10026번
+date: 2021-02-02
+tags:
+  - BOJ
+---
+
+
+> ## [BOJ] 10026번 
+
+#### 문제
+적록색약은 빨간색과 초록색의 차이를 거의 느끼지 못한다. 따라서, 적록색약인 사람이 보는 그림은 아닌 사람이 보는 그림과는 좀 다를 수 있다.
+
+크기가 N×N인 그리드의 각 칸에 R(빨강), G(초록), B(파랑) 중 하나를 색칠한 그림이 있다. 그림은 몇 개의 구역으로 나뉘어져 있는데, 구역은 같은 색으로 이루어져 있다. 또, 같은 색상이 상하좌우로 인접해 있는 경우에 두 글자는 같은 구역에 속한다. (색상의 차이를 거의 느끼지 못하는 경우도 같은 색상이라 한다)
+
+예를 들어, 그림이 아래와 같은 경우에
+
+RRRBB
+GGBBB
+BBBRR
+BBRRR
+RRRRR
+적록색약이 아닌 사람이 봤을 때 구역의 수는 총 4개이다. (빨강 2, 파랑 1, 초록 1) 하지만, 적록색약인 사람은 구역을 3개 볼 수 있다. (빨강-초록 2, 파랑 1)
+
+그림이 입력으로 주어졌을 때, 적록색약인 사람이 봤을 때와 아닌 사람이 봤을 때 구역의 수를 구하는 프로그램을 작성하시오.
+##### 입력
+첫째 줄에 N이 주어진다. (1 ≤ N ≤ 100)
+
+둘째 줄부터 N개 줄에는 그림이 주어진다.
+##### 출력
+적록색약이 아닌 사람이 봤을 때의 구역의 개수와 적록색약인 사람이 봤을 때의 구역의 수를 공백으로 구분해 출력한다.
+
+#### **풀이**
+이 문제는 dfs로 풀 수 있었다.
+
+x, y 좌표를 기준으로 상,하,좌,우에서 같은 값('R','G','B' 중 하나)이 있으면 계속 탐색하다가 True를 반환한다.
+
+이 문제에서는 '적록색약이 아닌 사람'과 '적록색약인 사람' 두 가지 경우를 구해야 하는데, 핵심은 적록색약이 아닌 사람이다.
+총 3가지 경우('R','G','B')를 분류해야 하기때문에 찾아야 하는 값 z 값('R','G','B' 중 하나) 또한 매개변수로 전달해주어 원하는 결과를 도출할 수 있었다.
+
+** [코드] **
+
+    import sys
+    import copy
+    sys.setrecursionlimit(30000)
+        
+    N= int(input())
+    gh=[]
+    for num in range(N):
+        gh.append(list(input()))
+    _graph = copy.deepcopy(gh)
+
+    def dfs(z, x, y, graph):
+      if x < 0 or y < 0 or x>=N or y>=N:
+        return False
+      if graph[x][y] in z:
+        graph[x][y]=0
+        dfs(z, x-1, y, graph)
+        dfs(z, x, y-1, graph)
+        dfs(z, x+1, y, graph)
+        dfs(z, x, y+1, graph)
+        return True
+      return False 
+
+    result = 0
+    n_result = 0
+    #적록색약이 아닌 사람
+    for i in range(N):
+      for j in range(N):
+        if _graph[i][j] == 'R':
+          if dfs(['R'], i, j,_graph) == True:
+            n_result+=1
+        elif _graph[i][j] == 'G':
+          if dfs(['G'], i, j,_graph) == True:
+            n_result+=1
+        else:
+          if dfs(['B'], i, j,_graph) == True:
+            n_result+=1
+    #적록색약인 사람
+    for i in range(N):
+      for j in range(N):
+        if gh[i][j] == 'R' or gh[i][j] == 'G':
+          if dfs(['R','G'], i, j, gh) == True:
+            result+=1
+        else:
+          if dfs(['B'], i, j,gh) == True:
+            result+=1
+
+    print(n_result, result)
