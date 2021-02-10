@@ -21,7 +21,7 @@ module.exports = {
           },
           {
             title: `TIL`,
-            slug: `/about`,
+            slug: `/til`,
           },
         ],
         externalLinks: [
