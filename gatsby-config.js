@@ -24,6 +24,16 @@ module.exports = {
             slug: `/til`,
           },
         ],
+      },
+      plugins: [
+        {
+          resolve: `gatsby-source-filesystem`,
+          options: {
+            name: `content/algorithm`,
+            path: `content/algorithm`,
+          },
+        },
+      ],
         externalLinks: [
           {
             name: `Github`,
@@ -35,7 +45,6 @@ module.exports = {
           },
         ],
       },
-    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
