@@ -1,0 +1,50 @@
+---
+title: BOJ_11724번
+date: 2021-02-27
+tags:
+  - BOJ
+---
+
+> ## [BOJ] 11724번 
+
+#### 문제
+방향 없는 그래프가 주어졌을 때, 연결 요소 (Connected Component)의 개수를 구하는 프로그램을 작성하시오.
+
+##### 입력
+첫째 줄에 정점의 개수 N과 간선의 개수 M이 주어진다. (1 ≤ N ≤ 1,000, 0 ≤ M ≤ N×(N-1)/2) 둘째 줄부터 M개의 줄에 간선의 양 끝점 u와 v가 주어진다. (1 ≤ u, v ≤ N, u ≠ v) 같은 간선은 한 번만 주어진다.
+##### 출력
+첫째 줄에 연결 요소의 개수를 출력한다.
+
+#### **풀이**
+
+기본적인 dfs 문제이다.
+
+방향이 없으므로 연결된 노드를 끝까지 탐색하여서 그래프의 개수가 몇 개인지 구하면된다.
+
+
+** [코드] **
+
+    import sys
+    sys.setrecursionlimit(3000)
+    N, M = map(int, input().split())
+    graph = [[] for x in range(N + 1)]
+    visited = [False]*(N+1)
+
+    for num in range(M):
+        A, B = map(int, input().split())
+        graph[A].append(B)
+        graph[B].append(A)
+
+    def dfs(num, graph, visited, cnt):
+        if visited[num] == False:
+            visited[num] = True
+            for x in graph[num]:
+                    dfs(x, graph, visited ,cnt+1)
+        else:
+            return 0
+        return 1
+
+    _cnt=0
+    for num in range(1, N + 1):
+        _cnt+=dfs(num, graph, visited, 0)
+    print(_cnt)
