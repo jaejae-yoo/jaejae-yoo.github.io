@@ -14,32 +14,43 @@ tags:
 
 괄호를 적절히 쳐서 이 식의 값을 최소로 만드는 프로그램을 작성하시오.
 
-여러 지방의 예산요청과 국가예산의 총액이 주어졌을 때, 위의 조건을 모두 만족하도록 예산을 배정하는 프로그램을 작성하시오.
-
 ##### 입력
 첫째 줄에 식이 주어진다. 식은 ‘0’~‘9’, ‘+’, 그리고 ‘-’만으로 이루어져 있고, 가장 처음과 마지막 문자는 숫자이다. 그리고 연속해서 두 개 이상의 연산자가 나타나지 않고, 5자리보다 많이 연속되는 숫자는 없다. 수는 0으로 시작할 수 있다. 입력으로 주어지는 식의 길이는 50보다 작거나 같다. 
 ##### 출력
 첫째 줄에 정답을 출력한다.
 
 #### **풀이**
+이 문제는 만약 식에 -가 나오면 그 뒤부터는 앞에 -(를 열어 놓고 계속 숫자를 더해나아가는 식으로 계산했다.
 
+쉬운 문제인데 SyntaxError가 계속나서 답답했다.
+근데 문제에서 '수는 0으로 시작할 수 있다.' 이 조건을 시작할 수 없다로 잘못 기억하고 있었다.
+
+문제 제대로 읽어야지...
 
 ** [코드] **
 
     num = list(input())
-    answer=[]
+    _str=''
     cnt1,cnt2=0,0
     for n in num:
         if n == "-":
             if cnt1 != 0:
-                answer.append('+')
+                _str+=' + '
             else:
-                answer.append("-(")
+                _str+=" -( "
                 cnt1 += 1
         elif n == "+":
-            answer.append('+')
+            _str+=' + '
         else:
-            answer.append(n)
+            _str+=str(n)
     if cnt1 != cnt2:
-        answer.append(")")
-    print(eval(''.join(answer)))
+        _str+=" )"
+
+    answer=_str.split()
+    answer_eval = ''
+    for _n in answer:
+        if _n.isdecimal() == True:
+            answer_eval += str(int(_n))
+        else:
+            answer_eval+=_n
+    print(eval(''.join(answer_eval)))
