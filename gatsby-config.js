@@ -16,8 +16,8 @@ module.exports = {
       options: {
         navigation: [
           {
-            title: `Posts`,
-            slug: `/blog`,
+            title: `Category`,
+            slug: `/tags`,
           },
           {
             title: `TIL`,
