@@ -20,8 +20,8 @@ module.exports = {
             slug: `/tags`,
           },
           {
-            title: `TIL`,
-            slug: `/til`,
+            title: `About Me`,
+            slug: `/AboutMe`,
           },
         ],
       },
