@@ -467,6 +467,24 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-5f1c9138184a81cae7bf.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/node-js-이론-1/page-data.json>; rel=preload; as=fetch; crossorigin
+/3-layer-neural-network
+  Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
+  Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
+  Link: </app-194dff9c4e00cd913f2a.js>; rel=preload; as=script
+  Link: </styles-e9d24b1846c7d6eb9685.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-69fe81c9a3c339cac625.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-5f1c9138184a81cae7bf.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/3-layer-neural-network/page-data.json>; rel=preload; as=fetch; crossorigin
+/perceptron
+  Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
+  Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
+  Link: </app-194dff9c4e00cd913f2a.js>; rel=preload; as=script
+  Link: </styles-e9d24b1846c7d6eb9685.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-69fe81c9a3c339cac625.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-post-query-tsx-5f1c9138184a81cae7bf.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/perceptron/page-data.json>; rel=preload; as=fetch; crossorigin
 /AboutMe
   Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
   Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
@@ -485,6 +503,15 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tag-query-tsx-c5e4b9480749b0833c49.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/boj/page-data.json>; rel=preload; as=fetch; crossorigin
+/tags/dl
+  Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
+  Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
+  Link: </app-194dff9c4e00cd913f2a.js>; rel=preload; as=script
+  Link: </styles-e9d24b1846c7d6eb9685.js>; rel=preload; as=script
+  Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-69fe81c9a3c339cac625.js>; rel=preload; as=script
+  Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tag-query-tsx-c5e4b9480749b0833c49.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/tags/dl/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags/node-js
   Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
   Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
@@ -494,7 +521,7 @@
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tag-query-tsx-c5e4b9480749b0833c49.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/tags/node-js/page-data.json>; rel=preload; as=fetch; crossorigin
-/tags/til
+/tags/today-i-learned
   Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
   Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
   Link: </app-194dff9c4e00cd913f2a.js>; rel=preload; as=script
@@ -502,7 +529,7 @@
   Link: </aed2e917f30c051bccba91aa15989a75fd0bd633-69fe81c9a3c339cac625.js>; rel=preload; as=script
   Link: </component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tag-query-tsx-c5e4b9480749b0833c49.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/tags/til/page-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/tags/today-i-learned/page-data.json>; rel=preload; as=fetch; crossorigin
 /tags/web
   Link: </webpack-runtime-82044ce98068241d2a5f.js>; rel=preload; as=script
   Link: </framework-cd3e1e804d552fa282ef.js>; rel=preload; as=script
