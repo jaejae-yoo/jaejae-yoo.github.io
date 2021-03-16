@@ -1,0 +1,109 @@
+---
+title:  Perceptron
+date: 2020-09-21
+tags:
+  - DL
+---
+
+
+> ## Perceprtron
+
+##### 퍼셉트론이란 다수의 신호를 입력받아 하나의 신호를 출력하는 것을 말한다. 
+
+밑의 예시를 기준으로 x1, x2는 입력 신호, w1과 w2 가중치, y는 출력 신호를 의미한다. 
+
+입력 신호가 노드에 보내질 때 각각의 고유한 가중치 w1 과 w2가 곱해지게 되고, 신호의 총합이 임계값을 넘어설 때만 1을 출력하게 되는 것이다.
+
+
+### 1. 단층 퍼셉트론
+
+##### AND GATE
+ AND 게이트는 입력이 모두 1인 경우에만 1을 출력한다.
+
+    def AND(x1, x2):
+      w1, w2, theta = 0.3, 0.3, 0.5
+      tmp = x1*w1 + x2*w2
+
+      if tmp <= theta:    #임계값을 넘지 못 한 경우
+        return 0
+      elif tmp > theta:   #임계값을 넘은 경우
+        return 1
+
+    print(AND(0, 0)) #0
+    print(AND(1, 0)) #0
+    print(AND(0, 1)) #0
+    print(AND(1, 1)) #1
+
+##### NAND GATE
+NAND 게이트는 입력이 모두 1인 경우에만 0을 출력한다.
+
+    def NAND(x1, x2):
+        x = np.array([x1, x2])
+        w = np.array([-0.3, -0.3])
+        b = 0.5
+        tmp = np.sum(w*x) + b
+        if tmp <= 0:
+            return 0
+        else:
+            return 1
+
+    print(NAND(0, 0)) #1
+    print(NAND(1, 0)) #1
+    print(NAND(0, 1)) #1
+    print(NAND(1, 1)) #0
+
+##### OR GATE
+OR 게이트는 입력의 값이 하나만 1이어도 1을 출력한다.
+
+    def OR(x1, x2):
+        x = np.array([x1, x2])
+        w = np.array([0.3, 0.3])
+        b = -0.2
+        tmp = np.sum(w*x) + b
+        if tmp <= 0:
+            return 0
+        else:
+            return 1
+    print(OR(0, 0)) #0
+    print(OR(1, 0)) #1
+    print(OR(0, 1)) #1
+    print(OR(1, 1)) #1
+
+##### NOR GATE
+NOR 게이트는 입력이 모두 0인 경우에만 1을 출력한다.
+
+    def NOR(x1, x2):
+      x = np.array([x1, x2])
+      w = np.array([-0.3, -0.3])
+      b = 0.2
+      tmp = np.sum(w*x) + b
+      if tmp <= 0:
+          return 0
+      else:
+          return 1
+    print(NOR(0, 0)) #1
+    print(NOR(1, 0)) #0
+    print(NOR(0, 1)) #0
+    print(NOR(1, 1)) #0
+
+### 2. 다층 퍼셉트론
+ 다층 퍼셉트론을 구현하여 비선형 영역을 나타낼 수 있다.
+
+    def XOR(x1, x2):
+        s1 = NAND(x1, x2)
+        s2 = OR(x1, x2)
+        y = AND(s1, s2)
+        return y
+
+    print(XOR(0, 0)) #0
+    print(XOR(1, 0)) #1
+    print(XOR(0, 1)) #1
+    print(XOR(1, 1)) #0
+
+
+
+
+
+
+  ### 참고문헌
+- Deep Learning from Scratch

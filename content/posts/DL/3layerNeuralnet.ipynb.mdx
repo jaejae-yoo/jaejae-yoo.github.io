@@ -1,0 +1,72 @@
+---
+title:  3 layer neural network
+date: 2020-09-29
+tags:
+  - DL
+---
+
+> ### Perceptron VS neural network
+
+퍼셉트론은 수동으로 원하는 결과를 도출하기 위해 수동으로 가중치를 설정해야 한다.
+
+신경망은 이러한 단점을 보완할 수 있는데 즉, 가중치 매개변수의 적절한 겂을 데이터로부터 자동으로 학습할 수 있다.
+
+
+> ###  3 layer neural network 수식 표현
+
+입력층(0층)에 뉴런 2개와 편향 뉴런 1개, 첫 번째 은닉층(1층) 3개, 두 번째 은닉층(2층) 2개 출력층(3층)으로 구성된 신경망 구현.
+
+
+##### input layer ➜ 1 layer로 신호 전달
+    a1(1) = w11(1) x1 + w12 (1) x2 + b1(1)
+    a2(1) = w21(1) x1 + w22(1) x 2 + b2(1)
+    a3(1) = w31(1) x1 + w32 (1) x2 + b3(1)
+    A(1) = W(1) * X + B(1)
+
+##### 1 layer에서 ➜ 2 layer로 신호 전달
+    a1(2) = w11(2) z1(1)1 + w12 (2) z2(1) + w13(2)* z3(1) + b1(2)
+    a2(2) = w21(2) z1(1) + w22(2) z2(1) + w23(2)* z3(1) + b2(2)
+    A(2) = W(2) * Z(1) + B(2)
+
+##### 2 layer ➜ output layer로 신호 전달
+    a1(3) = w11(3) z1(2)1 + w12 (3) z2(2) + b1(3)
+    a2(3) = w21(3) z1(2) + w22(3) z2(2) + b2(3)
+    A(3) = W(3) * Z(2) + B(3)
+
+<br></br><br></br>
+
+> ### 3 layer neural network CODE
+ 
+        import numpy as np
+
+        #활성화 함수
+        def sigmoid(x):
+            return 1 / (1 + np.exp(-x))
+        
+        #항등 함수
+        def identity_function(x):
+            return x
+
+        #입력층에서 1층으로 신호전달
+        X = np.array([1.0, 0.5])
+        W1 = np.array([[0.1, 0.3, 0.5],[0.2, 0.4, 0.6]])
+        B1 = np.array([0.1, 0.2, 0.3])
+
+        A1 = np.dot(X, W1) + B1
+
+        #1층에서 2층으로 신호 전달
+        Z1 = sigmoid(A1)
+        W2 = np.array([[0.1, 0.4],[0.2, 0.5],[0.3, 0.6]])
+        B2 = np.array([0.1, 0.2])
+
+        A2 = np.dot(Z1, W2) + B2
+
+        #2층에서 출력층으로 신호 전달
+        Z2 = sigmoid(A2)
+
+        W3 = np.array([[0.1, 0.3],[0.2, 0.4]])
+        B3 = np.array([0.1, 0.2])
+
+        A3 = np.dot(Z2, W3) + B3
+        #출력
+        Y = identity_function(A3)
